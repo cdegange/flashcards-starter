@@ -6,7 +6,7 @@ const Card = require('../src/Card');
 
 describe('Deck', function() {
 
-    let deck;
+    let deck = null;
 
     beforeEach(function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
@@ -20,7 +20,7 @@ describe('Deck', function() {
        
         expect(Deck).to.be.a('function');
     });
-    
+
     it('should be an array of card objects', function() {
 
         expect(deck.cards).to.be.a('array');
