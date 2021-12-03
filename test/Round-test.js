@@ -43,5 +43,11 @@ describe('Round', function() {
         
         expect(round.currentCard).to.equal(card3);
     })
+    it('should add to incorrect guesses array when answer is wrong', function() {
+
+        round.takeTurn(2015);
+
+        expect(round.incorrectGuesses.length).to.equal(1);
+    })
         
 });
