@@ -18,11 +18,12 @@ class Round {
         currentTurn.evaluateGuess();
         currentTurn.giveFeedback();
         if (currentTurn.giveFeedback === 'incorrect!') {
-            this.incorrectGuesses.push(guess);
+            this.incorrectGuesses.push(this.currentCard.id);
         } else {
-            this.correctGuesses.push(guess);
+            this.correctGuesses.push(this.currentCard.id);
         }
         this.turns ++;
+        this.currentCard = this.deck.cards[this.turns];
     };
 
     calculatePercentCorrect() {
@@ -31,7 +32,7 @@ class Round {
     };
 
     endRound() {
-        return `** Round Over!** You answered ${calculatePercentCorrect()}% of the questions correctly!`;
+        return `** Round Over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
     };
 
 };
